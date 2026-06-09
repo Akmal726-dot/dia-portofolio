@@ -14,6 +14,21 @@ const PORT = 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Set cache control headers untuk prevent caching pada development
+app.use((req, res, next) => {
+  // Untuk file HTML, jangan cache
+  if (req.url.endsWith('.html')) {
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+  }
+  // Untuk JS dan CSS, cache tapi revalidate
+  else if (req.url.match(/\.(js|css)$/)) {
+    res.setHeader('Cache-Control', 'public, max-age=3600');
+  }
+  next();
+});
+
 // Serve static files dari root folder (index.html, public/)
 app.use(express.static(path.join(__dirname, '..')));
 

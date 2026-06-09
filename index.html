@@ -5,7 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Portofolio Akmal Jadid Hibrizi - Full Stack Developer & UI/UX Designer" />
   <title>Akmal Jadid Hibrizi | Portfolio</title>
-  <link rel="stylesheet" href="public/css/style.css" />
+  <!-- Meta tag untuk disable cache dalam development -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  
+  <link rel="stylesheet" href="public/css/style.css?v=1.0.3" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
@@ -75,11 +80,9 @@
         <div class="stat"><span class="stat-num" data-target="15">0</span><span>+</span><p>Klien</p></div>
       </div>
     </div>
-    <div class="hero-image reveal-right">
+    <div class="kamu-jpg reveal-right">
       <div class="image-frame">
-        <div class="image-placeholder">
-          <div class="avatar-initials">AJH</div>
-        </div>
+        <img src="img/kamu.jpg" alt="Akmal Jadid Hibrizi" class="avatar-image">
         <div class="frame-decoration"></div>
         <div class="floating-badge badge-1"><i class="fa-brands fa-react"></i> React</div>
         <div class="floating-badge badge-2"><i class="fa-solid fa-database"></i> MongoDB</div>
@@ -102,9 +105,7 @@
       <div class="about-grid">
         <div class="about-image-col reveal-left">
           <div class="about-img-wrap">
-            <div class="about-placeholder">
-              <div class="avatar-initials large">AJH</div>
-            </div>
+            <img src="img/kamu.jpg" alt="Akmal Jadid Hibrizi" class="about-image">
             <div class="about-shape"></div>
             <div class="experience-badge">
               <strong>3+</strong>
@@ -119,15 +120,15 @@
           <div class="about-details">
             <div class="detail-item"><i class="fa-solid fa-location-dot"></i> Indonesia</div>
             <div class="detail-item"><i class="fa-solid fa-graduation-cap"></i> Teknik Informatika</div>
-            <div class="detail-item"><i class="fa-solid fa-briefcase"></i> Freelance & Remote</div>
-            <div class="detail-item"><i class="fa-solid fa-language"></i> Indonesia, English</div>
+            <div class="detail-item"><i class="fa-solid fa-briefcase"></i> Freelance</div>
+            <div class="detail-item"><i class="fa-solid fa-language"></i> Indonesia, jawa timur</div>
           </div>
           <div class="about-actions">
             <a href="#" class="btn btn-primary" onclick="downloadCV(event)">Download CV <i class="fa-solid fa-download"></i></a>
             <div class="social-links">
-              <a href="https://github.com/" target="_blank" class="social-btn" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-              <a href="https://linkedin.com/" target="_blank" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-              <a href="https://instagram.com/" target="_blank" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://github.com/Akmal726-dot" target="_blank" class="social-btn" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+              <a href="https://www.facebook.com/share/1HTXNHmEDs/" target="_blank" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+              <a href="https://www.instagram.com/_this_owl" target="_blank" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
             </div>
           </div>
         </div>
@@ -200,28 +201,28 @@
               <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
               <div>
                 <span class="contact-label">Email</span>
-                <a href="mailto:akmal@example.com" class="contact-value">akmal@example.com</a>
+                <a href="mailto:akmal@example.com" class="contact-value"></a>jadidakmal0@gmail.com
               </div>
             </div>
             <div class="contact-item">
               <div class="contact-icon"><i class="fa-brands fa-whatsapp"></i></div>
               <div>
                 <span class="contact-label">WhatsApp</span>
-                <a href="https://wa.me/628xxxxxxxxxx" target="_blank" class="contact-value">+62 8xx-xxxx-xxxx</a>
+                <a href="https://wa.me/6282131076202" target="_blank" class="contact-value">+62 821-3107-6202</a>
               </div>
             </div>
             <div class="contact-item">
               <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
               <div>
                 <span class="contact-label">GitHub</span>
-                <a href="https://github.com/" target="_blank" class="contact-value">github.com/akmal</a>
+                <a href="https://github.com/Akmal726-dot" target="_blank" class="contact-value">github.com/Akmal726-dot</a>
               </div>
             </div>
             <div class="contact-item">
-              <div class="contact-icon"><i class="fa-brands fa-linkedin"></i></div>
+              <div class="contact-icon"><i class="fa-brands fa-facebook"></i></div>
               <div>
-                <span class="contact-label">LinkedIn</span>
-                <a href="https://linkedin.com/" target="_blank" class="contact-value">linkedin.com/in/akmal</a>
+                <span class="contact-label">Facebook</span>
+                <a href="https://www.facebook.com/share/1HTXNHmEDs/" target="_blank" class="contact-value">facebook.com/akmal</a>
               </div>
             </div>
           </div>
@@ -229,34 +230,6 @@
             <span class="avail-dot"></span>
             Tersedia untuk proyek baru
           </div>
-        </div>
-        <div class="contact-form-wrap reveal-right">
-          <form class="contact-form" id="contactForm" novalidate>
-            <div class="form-group">
-              <label for="name">Nama Lengkap</label>
-              <input type="text" id="name" name="name" placeholder="John Doe" required />
-              <span class="field-error" id="nameError"></span>
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="john@example.com" required />
-              <span class="field-error" id="emailError"></span>
-            </div>
-            <div class="form-group">
-              <label for="subject">Subjek</label>
-              <input type="text" id="subject" name="subject" placeholder="Diskusi Proyek" required />
-              <span class="field-error" id="subjectError"></span>
-            </div>
-            <div class="form-group">
-              <label for="message">Pesan</label>
-              <textarea id="message" name="message" rows="5" placeholder="Ceritakan proyek Anda..." required></textarea>
-              <span class="field-error" id="messageError"></span>
-            </div>
-            <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
-              Kirim Pesan <i class="fa-solid fa-paper-plane"></i>
-            </button>
-            <div class="form-status" id="formStatus"></div>
-          </form>
         </div>
       </div>
     </div>
@@ -303,7 +276,7 @@
     </div>
   </div>
 
-  <script src="public/js/data.js"></script>
-  <script src="public/js/main.js"></script>
+  <script src="public/js/data.js?v=1.0.0"></script>
+  <script src="public/js/main.js?v=1.0.0"></script>
 </body>
 </html>
