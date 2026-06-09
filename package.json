@@ -1,0 +1,20 @@
+{
+  "name": "akmal-jadid-hibrizi-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio website Akmal Jadid Hibrizi - Full Stack Developer",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "npx nodemon backend/server.js",
+    "backend": "node backend/server.js"
+  },
+  "keywords": ["portfolio", "fullstack", "nodejs", "express"],
+  "author": "Akmal Jadid Hibrizi",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
