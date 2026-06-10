@@ -95,17 +95,8 @@ const logoutBtn = document.getElementById('logoutBtn');
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     navUser.style.display = 'flex';
-    userName.textContent = user.displayName || user.email;
-    if (user.photoURL) {
-      userAvatar.src = user.photoURL;
-      userAvatar.style.display = 'block';
-    } else {
-      userAvatar.style.display = 'none';
-    }
-  } else {
-    navUser.style.display = 'none';
-  }
-});
+    userName.textContent = user.displayName || user.email;  
+};
 
 logoutBtn.addEventListener('click', () => {
   firebase.auth().signOut().then(() => {
@@ -579,4 +570,4 @@ registerForm.addEventListener('submit', e => {
   }, { threshold: 0.2 });
   if (skillsSection) skillsObserver.observe(skillsSection);
 
-
+});
