@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
     grid.innerHTML = projects.map((p, i) => `
       <div class="project-card" data-id="${p.id}" style="animation-delay: ${i * 0.1}s; opacity: 0; animation: fadeInUp 0.5s ease ${i * 0.1}s forwards">
         <div class="project-img">
-          <span>${p.emoji}</span>
+          <img src="img/dj.jpg" alt="DJ Thumbnail">
           <div class="project-badge">${p.badge}</div>
         </div>
         <div class="project-body">
@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!p) return;
     const modal = document.getElementById('modalOverlay');
     document.getElementById('modalContent').innerHTML = `
-      <span class="modal-emoji">${p.emoji}</span>
+      <span class="modal-emoji"><img src="img/dj.jpg" alt="Foto DJ"></span>
       <h2 class="modal-title">${p.title}</h2>
       <p class="modal-subtitle">${p.year} · ${p.badge}</p>
       <p class="modal-desc">${p.longDesc}</p>
@@ -262,8 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ${p.features.map(f => `<li>${f}</li>`).join('')}
       </ul>
       <div class="modal-links">
-        <a href="${p.github}" target="_blank" class="btn btn-ghost" onclick="event.stopPropagation()"><i class="fa-brands fa-github"></i> Source Code</a>
-        <a href="${p.demo}" target="_blank" class="btn btn-primary" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+        <a href="videos/DJ.mp4" target="_blank" class="btn btn-primary" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
       </div>
     `;
     modal.classList.add('open');
