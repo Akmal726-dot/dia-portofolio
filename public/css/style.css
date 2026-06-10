@@ -871,6 +871,14 @@ input, textarea { font-family: inherit; }
   .image-frame { width: 200px; height: 240px; }
 }
 /* ===== AUTH SCREEN ===== */
+.auth-box {
+  animation: none !important;
+  transform: none !important;
+}
+
+.auth-bg .orb {
+  animation: none !important;
+}
 .auth-screen {
   position: fixed;
   inset: 0;
