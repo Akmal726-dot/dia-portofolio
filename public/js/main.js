@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
     grid.innerHTML = projects.map((p, i) => `
       <div class="project-card" data-id="${p.id}" style="animation-delay: ${i * 0.1}s; opacity: 0; animation: fadeInUp 0.5s ease ${i * 0.1}s forwards">
         <div class="project-img">
-          <video src="videos/DJ.mp4" controls playsinline onclick="event.stopPropagation()"></video>
+          <span>${p.emoji}</span>
           <div class="project-badge">${p.badge}</div>
         </div>
         <div class="project-body">
@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!p) return;
     const modal = document.getElementById('modalOverlay');
     document.getElementById('modalContent').innerHTML = `
-      <span class="modal-emoji"><video src="videos/DJ.mp4" controls playsinline onclick="event.stopPropagation()"></video></span>
+      <span class="modal-emoji">${p.emoji}</span>
       <h2 class="modal-title">${p.title}</h2>
       <p class="modal-subtitle">${p.year} · ${p.badge}</p>
       <p class="modal-desc">${p.longDesc}</p>
