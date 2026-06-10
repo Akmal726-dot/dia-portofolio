@@ -437,10 +437,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   // ---- DOWNLOAD CV ----
-  window.downloadCV = function(e) {
-    e.preventDefault();
-    alert('📄 CV akan segera tersedia. Hubungi saya langsung untuk mendapatkan CV terbaru!');
-  };
+  // Download handled via the anchor link to `cv/cv.pdf` (uses `download` attribute)
 
   // ---- SKILLS REVEAL ON SCROLL ----
   const skillsSection = document.getElementById('skills');
