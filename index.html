@@ -17,6 +17,37 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
+  <!-- NOTIFICATION TOAST -->
+<div id="notifToast" style="
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 99999;
+  transform: translateX(120%);
+  transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+">
+  <div style="
+    background: rgba(17,17,24,0.95);
+    border-radius: 14px;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    backdrop-filter: blur(10px);
+    min-width: 280px;
+    max-width: 340px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  ">
+    <span id="notifIcon" style="font-size: 20px;">✅</span>
+    <p id="notifMsg" style="
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: rgba(255,255,255,0.9);
+      margin: 0;
+      line-height: 1.5;
+    "></p>
+  </div>
+</div>
 <!-- WELCOME TOAST -->
 <div class="welcome-toast" id="welcomeToast">
   <div class="welcome-inner">
@@ -44,6 +75,22 @@
   <div class="auth-box" id="authBox">
     <div class="auth-logo">AJH<span>.</span></div>
     <div class="auth-sub">Portofolio — Akmal Jadid Hibrizi</div>
+    <!-- NOTIF TOAST -->
+    <div id="notifToast" style="
+      width: 100%;
+      margin-bottom: 12px;
+      display: none;
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      align-items: center;
+      gap: 10px;
+    ">
+      <span id="notifIcon">✅</span>
+      <p id="notifMsg" style="margin:0; line-height:1.5;"></p>
+    </div>
+
     <div class="auth-tabs">
       <button class="auth-tab active" data-tab="login">Masuk</button>
       <button class="auth-tab" data-tab="register">Daftar</button>

@@ -64,7 +64,31 @@ function closeAuthScreen() {
     showWelcomeToast();
   }, 500);
 }
+function showNotif(type, message) {
+  const toast = document.getElementById('notifToast');
+  const icon = document.getElementById('notifIcon');
+  const msg = document.getElementById('notifMsg');
 
+  if (type === 'success') {
+    toast.style.background = 'rgba(0,212,170,0.1)';
+    toast.style.border = '1px solid rgba(0,212,170,0.3)';
+    toast.style.color = '#00d4aa';
+    icon.textContent = '✅';
+  } else {
+    toast.style.background = 'rgba(255,77,109,0.1)';
+    toast.style.border = '1px solid rgba(255,77,109,0.3)';
+    toast.style.color = '#ff4d6d';
+    icon.textContent = '❌';
+  }
+
+  msg.textContent = message;
+  toast.style.display = 'flex';
+
+  clearTimeout(window._notifTimer);
+  window._notifTimer = setTimeout(() => {
+    toast.style.display = 'none';
+  }, 3500);
+}
 function showWelcomeToast() {
   const toast = document.getElementById('welcomeToast');
   const msg = document.getElementById('welcomeMsg');
@@ -125,15 +149,27 @@ loginForm.addEventListener('submit', e => {
   const email = loginForm.querySelector('input[type="email"]').value;
   const password = loginForm.querySelector('input[type="password"]').value;
 
+  if (!email) { alert('❌ Email tidak boleh kosong!'); return; }
+  if (!password) { alert('❌ Password tidak boleh kosong!'); return; }
+
   firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(() => closeAuthScreen())
+    .then(() => {
+      alert('✅ Login berhasil! Selamat datang 🎉');
+      closeAuthScreen();
+    })
     .catch((error) => {
       if (error.code === 'auth/user-not-found') {
-        alert('Email tidak terdaftar!');
+        alert('❌ Email tidak terdaftar! Silakan daftar dulu.');
       } else if (error.code === 'auth/wrong-password') {
-        alert('Password salah!');
+        alert('❌ Password salah! Coba lagi.');
+      } else if (error.code === 'auth/invalid-email') {
+        alert('❌ Format email tidak valid!');
+      } else if (error.code === 'auth/invalid-credential') {
+        alert('❌ Email atau password salah!');
+      } else if (error.code === 'auth/network-request-failed') {
+        alert('❌ Koneksi internet bermasalah! Coba lagi.');
       } else {
-        alert('Login gagal: ' + error.message);
+        alert('❌ Login gagal: ' + error.message);
       }
     });
 });
@@ -145,23 +181,30 @@ registerForm.addEventListener('submit', e => {
   const password = registerForm.querySelectorAll('input[type="password"]')[0].value;
   const konfirmasi = registerForm.querySelectorAll('input[type="password"]')[1].value;
 
-  if (password !== konfirmasi) {
-    alert('Password tidak cocok!');
-    return;
-  }
+  if (!nama) { alert('❌ Nama tidak boleh kosong!'); return; }
+  if (!email) { alert('❌ Email tidak boleh kosong!'); return; }
+  if (password.length < 6) { alert('❌ Password minimal 6 karakter!'); return; }
+  if (password !== konfirmasi) { alert('❌ Password tidak cocok!'); return; }
 
   firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((result) => {
       return result.user.updateProfile({ displayName: nama });
     })
-    .then(() => closeAuthScreen())
+    .then(() => {
+      firebase.auth().signOut(); // logout dulu setelah register
+      alert('✅ Akun berhasil dibuat! Silakan login dengan akun baru kamu.');
+      // Pindah ke tab login
+      authTabs[0].click();
+    })
     .catch((error) => {
       if (error.code === 'auth/email-already-in-use') {
-        alert('Email sudah terdaftar!');
+        alert('❌ Email sudah terdaftar! Silakan login atau gunakan email lain.');
       } else if (error.code === 'auth/weak-password') {
-        alert('Password minimal 6 karakter!');
+        alert('❌ Password terlalu lemah! Minimal 6 karakter.');
+      } else if (error.code === 'auth/invalid-email') {
+        alert('❌ Format email tidak valid!');
       } else {
-        alert('Register gagal: ' + error.message);
+        alert('❌ Register gagal: ' + error.message);
       }
     });
 });
