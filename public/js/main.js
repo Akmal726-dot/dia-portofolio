@@ -86,6 +86,36 @@ function showWelcomeToast() {
   // Sembunyikan otomatis setelah 5 detik
   setTimeout(() => toast.classList.remove('show'), 5500);
 }
+// ===== LOGOUT =====
+const navUser = document.getElementById('navUser');
+const userAvatar = document.getElementById('userAvatar');
+const userName = document.getElementById('userName');
+const logoutBtn = document.getElementById('logoutBtn');
+
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    navUser.style.display = 'flex';
+    userName.textContent = user.displayName || user.email;
+    if (user.photoURL) {
+      userAvatar.src = user.photoURL;
+      userAvatar.style.display = 'block';
+    } else {
+      userAvatar.style.display = 'none';
+    }
+  } else {
+    navUser.style.display = 'none';
+  }
+});
+
+logoutBtn.addEventListener('click', () => {
+  firebase.auth().signOut().then(() => {
+    authScreen.classList.remove('hidden');
+    authScreen.style.opacity = '0';
+    setTimeout(() => {
+      authScreen.style.opacity = '1';
+    }, 100);
+  });
+});
 
 loginForm.addEventListener('submit', e => {
   e.preventDefault();
@@ -96,6 +126,7 @@ registerForm.addEventListener('submit', e => {
   closeAuthScreen();
 });
  document.body.style.overflow = 'hidden';
+ 
 
   // ---- LOADER ----
   const loader = document.getElementById('loader');

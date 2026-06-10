@@ -1040,3 +1040,42 @@ input, textarea { font-family: inherit; }
   color: #a78bfa;
   font-weight: 600;
 }
+/* ===== NAV USER & LOGOUT ===== */
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.user-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  max-width: 120px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.btn-logout {
+  padding: 8px 18px;
+  background: rgba(255, 77, 109, 0.15);
+  border: 1px solid rgba(255, 77, 109, 0.6);
+  border-radius: 8px;
+  color: #ff4d6d;
+  font-size: 13px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.03em;
+}
+.btn-logout:hover {
+  background: rgba(255, 77, 109, 0.3);
+  border-color: #ff4d6d;
+  transform: scale(1.03);
+}
+.btn-logout i {
+  font-size: 14px;
+}
