@@ -25,7 +25,13 @@ document.querySelectorAll('.btn-social')[1].addEventListener('click', () => {
   const provider = new firebase.auth.GithubAuthProvider();
   firebase.auth().signInWithPopup(provider)
     .then(() => closeAuthScreen())
-    .catch((error) => alert('Login GitHub gagal: ' + error.message));
+    .catch((error) => {
+  if (error.code === 'auth/account-exists-with-different-credential') {
+    alert('Email ini sudah terdaftar dengan Google. Silakan login pakai Google ya! 😊');
+  } else {
+    alert('Login GitHub gagal: ' + error.message);
+  }
+});
 });
 
 authTabs.forEach(tab => {
@@ -116,12 +122,50 @@ logoutBtn.addEventListener('click', () => {
 
 loginForm.addEventListener('submit', e => {
   e.preventDefault();
-  closeAuthScreen();
+  const email = loginForm.querySelector('input[type="email"]').value;
+  const password = loginForm.querySelector('input[type="password"]').value;
+
+  firebase.auth().signInWithEmailAndPassword(email, password)
+    .then(() => closeAuthScreen())
+    .catch((error) => {
+      if (error.code === 'auth/user-not-found') {
+        alert('Email tidak terdaftar!');
+      } else if (error.code === 'auth/wrong-password') {
+        alert('Password salah!');
+      } else {
+        alert('Login gagal: ' + error.message);
+      }
+    });
 });
+
 registerForm.addEventListener('submit', e => {
   e.preventDefault();
-  closeAuthScreen();
+  const nama = registerForm.querySelector('input[type="text"]').value;
+  const email = registerForm.querySelector('input[type="email"]').value;
+  const password = registerForm.querySelectorAll('input[type="password"]')[0].value;
+  const konfirmasi = registerForm.querySelectorAll('input[type="password"]')[1].value;
+
+  if (password !== konfirmasi) {
+    alert('Password tidak cocok!');
+    return;
+  }
+
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then((result) => {
+      return result.user.updateProfile({ displayName: nama });
+    })
+    .then(() => closeAuthScreen())
+    .catch((error) => {
+      if (error.code === 'auth/email-already-in-use') {
+        alert('Email sudah terdaftar!');
+      } else if (error.code === 'auth/weak-password') {
+        alert('Password minimal 6 karakter!');
+      } else {
+        alert('Register gagal: ' + error.message);
+      }
+    });
 });
+document.addEventListener('DOMContentLoaded', () => {
  document.body.style.overflow = 'hidden';
  
 
@@ -576,4 +620,4 @@ registerForm.addEventListener('submit', e => {
   }, { threshold: 0.2 });
   if (skillsSection) skillsObserver.observe(skillsSection);
 
-
+});
