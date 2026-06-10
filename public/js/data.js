@@ -48,7 +48,7 @@ const PORTFOLIO_DATA = {
       longDesc: "Platform e-commerce yang dibangun dengan React.js di frontend dan Node.js + Express di backend. Dilengkapi dengan sistem autentikasi JWT, integrasi payment gateway Midtrans, real-time inventory management, dan admin dashboard dengan analitik penjualan.",
       emoji: "🛒",
       category: "web",
-      year: "2024",
+      year: "2026",
       tags: ["React", "Node.js", "MongoDB", "Express", "Midtrans"],
       features: [
         "Autentikasi JWT & OAuth Google",
@@ -69,7 +69,7 @@ const PORTFOLIO_DATA = {
       longDesc: "Aplikasi project management bergaya Kanban board yang dibangun dengan Vue.js dan Laravel. Mendukung kolaborasi tim, komentar pada tugas, deadline tracking, dan laporan produktivitas mingguan.",
       emoji: "📋",
       category: "web",
-      year: "2024",
+      year: "2026",
       tags: ["Vue.js", "Laravel", "MySQL", "Pusher", "Tailwind"],
       features: [
         "Kanban board dengan drag-and-drop",
@@ -90,7 +90,7 @@ const PORTFOLIO_DATA = {
       longDesc: "Aplikasi mobile React Native untuk tracking keuangan personal. Fitur meliputi kategorisasi transaksi otomatis dengan AI, visualisasi pengeluaran dengan chart interaktif, dan sistem goals saving dengan reminder otomatis.",
       emoji: "💰",
       category: "mobile",
-      year: "2023",
+      year: "2025",
       tags: ["React Native", "Firebase", "Redux", "Chart.js"],
       features: [
         "Input transaksi cepat & mudah",
@@ -111,7 +111,7 @@ const PORTFOLIO_DATA = {
       longDesc: "Design system yang dibangun di Figma dan dikembangkan dengan Storybook. Mencakup 200+ komponen UI yang dapat digunakan kembali, panduan tipografi, palet warna, serta dokumentasi penggunaan yang komprehensif untuk tim developer.",
       emoji: "🎨",
       category: "ui",
-      year: "2023",
+      year: "2025",
       tags: ["Figma", "Storybook", "React", "SCSS", "TypeScript"],
       features: [
         "200+ komponen siap pakai",
@@ -132,7 +132,7 @@ const PORTFOLIO_DATA = {
       longDesc: "Platform blogging full-stack yang dibangun dengan Next.js dan custom CMS. Dilengkapi dengan SEO optimizer otomatis, editor markdown dengan preview langsung, manajemen media, dan analitik pembaca terintegrasi.",
       emoji: "✍️",
       category: "web",
-      year: "2023",
+      year: "2025",
       tags: ["Next.js", "PostgreSQL", "Prisma", "MDX", "Vercel"],
       features: [
         "CMS custom dengan editor visual",
@@ -153,7 +153,7 @@ const PORTFOLIO_DATA = {
       longDesc: "Proyek desain UI/UX untuk aplikasi food delivery yang komprehensif. Mencakup user research, wireframing, prototype interaktif di Figma, dan panduan animasi untuk developer. Alur pemesanan dioptimalkan berdasarkan usability testing dengan 20 responden.",
       emoji: "🍔",
       category: "ui",
-      year: "2024",
+      year: "2025",
       tags: ["Figma", "Prototyping", "User Research", "Animation"],
       features: [
         "User research & persona",
@@ -227,7 +227,7 @@ const PORTFOLIO_DATA = {
       title: "Perjalanan Menjadi Full Stack Developer: Tips dari Pengalaman Nyata",
       excerpt: "Refleksi jujur perjalanan belajar programming dari nol hingga menjadi developer profesional, lengkap dengan resource terbaik.",
       category: "Career",
-      date: "2 Des 2024",
+      date: "2 Des 2025",
       emoji: "🗺️",
       readTime: "10 menit",
       content: `

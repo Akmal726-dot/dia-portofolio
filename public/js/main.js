@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
     grid.innerHTML = projects.map((p, i) => `
       <div class="project-card" data-id="${p.id}" style="animation-delay: ${i * 0.1}s; opacity: 0; animation: fadeInUp 0.5s ease ${i * 0.1}s forwards">
         <div class="project-img">
-          <span>${p.emoji}</span>
+          <video src="videos/DJ.mp4" controls playsinline onclick="event.stopPropagation()"></video>
           <div class="project-badge">${p.badge}</div>
         </div>
         <div class="project-body">
@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!p) return;
     const modal = document.getElementById('modalOverlay');
     document.getElementById('modalContent').innerHTML = `
-      <span class="modal-emoji">${p.emoji}</span>
+      <span class="modal-emoji"><video src="videos/DJ.mp4" controls playsinline onclick="event.stopPropagation()"></video></span>
       <h2 class="modal-title">${p.title}</h2>
       <p class="modal-subtitle">${p.year} · ${p.badge}</p>
       <p class="modal-desc">${p.longDesc}</p>
@@ -284,7 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const grid = document.getElementById('blogGrid');
     grid.innerHTML = PORTFOLIO_DATA.blogs.map((b, i) => `
       <div class="blog-card" data-id="${b.id}" style="animation-delay: ${i * 0.1}s; opacity: 0; animation: fadeInUp 0.5s ease ${i * 0.1}s forwards">
-        <div class="blog-img">${b.emoji}</div>
+        <div class="blog-img"><img src="img/kamu.jpg" alt="Foto Kamu"></div>
         <div class="blog-body">
           <span class="blog-category">${b.category}</span>
           <h3 class="blog-title">${b.title}</h3>
@@ -308,7 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const b = PORTFOLIO_DATA.blogs.find(blog => blog.id === id);
     if (!b) return;
     document.getElementById('blogModalContent').innerHTML = `
-      <span class="modal-emoji">${b.emoji}</span>
+      <span class="modal-emoji"><img src="img/kamu.jpg" alt="Foto Kamu"></span>
       <span style="display:inline-block;font-size:0.72rem;font-weight:600;color:var(--accent);background:rgba(244,162,97,0.1);border:1px solid rgba(244,162,97,0.2);border-radius:99px;padding:3px 10px;margin-bottom:12px;letter-spacing:0.5px;text-transform:uppercase">${b.category}</span>
       <h2 class="modal-title">${b.title}</h2>
       <p style="font-size:0.82rem;color:var(--text-faint);margin-bottom:24px">${b.date} · ${b.readTime} membaca</p>
