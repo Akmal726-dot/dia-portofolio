@@ -12,16 +12,20 @@ let isLogin = true;
 const provider = new firebase.auth.GoogleAuthProvider();
 
 // Tombol Google Login
-document.querySelector('.btn-social').addEventListener('click', () => {
+// Google
+document.querySelectorAll('.btn-social')[0].addEventListener('click', () => {
+  const provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider)
-    .then((result) => {
-      const user = result.user;
-      console.log('Login berhasil:', user.displayName);
-      closeAuthScreen();
-    })
-    .catch((error) => {
-      alert('Login Google gagal: ' + error.message);
-    });
+    .then(() => closeAuthScreen())
+    .catch((error) => alert('Login Google gagal: ' + error.message));
+});
+
+// GitHub
+document.querySelectorAll('.btn-social')[1].addEventListener('click', () => {
+  const provider = new firebase.auth.GithubAuthProvider();
+  firebase.auth().signInWithPopup(provider)
+    .then(() => closeAuthScreen())
+    .catch((error) => alert('Login GitHub gagal: ' + error.message));
 });
 
 authTabs.forEach(tab => {
@@ -95,9 +99,11 @@ const logoutBtn = document.getElementById('logoutBtn');
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     navUser.style.display = 'flex';
-    userName.textContent = user.displayName || user.email;  
-};
-
+    userName.textContent = user.displayName || user.email;
+  } else {
+    navUser.style.display = 'none';
+  }
+});
 logoutBtn.addEventListener('click', () => {
   firebase.auth().signOut().then(() => {
     authScreen.classList.remove('hidden');
@@ -570,4 +576,4 @@ registerForm.addEventListener('submit', e => {
   }, { threshold: 0.2 });
   if (skillsSection) skillsObserver.observe(skillsSection);
 
-});
+

@@ -86,8 +86,21 @@ input, textarea { font-family: inherit; }
 }
 .cursor.hovered { transform: translate(-50%,-50%) scale(0); }
 .cursor-follower.hovered { width: 56px; height: 56px; background: rgba(124,109,244,0.1); }
-@media (hover: none) { .cursor, .cursor-follower { display: none; } }
-
+@media (hover: none) { 
+  .cursor, .cursor-follower { 
+    display: none !important; 
+  } 
+}
+.auth-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.auth-box {
+  position: relative;
+  z-index: 1;
+}
 /* ============ LOADER ============ */
 .loader {
   position: fixed; inset: 0;
