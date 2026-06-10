@@ -1,14 +1,108 @@
 // ============================================
 // MAIN.JS — Portfolio Akmal Jadid Hibrizi
 // ============================================
+// ===== AUTH SCREEN =====
+const authScreen = document.getElementById('authScreen');
+const loginForm = document.getElementById('loginForm');
+const registerForm = document.getElementById('registerForm');
+const authFooter = document.getElementById('authFooter');
+const authTabs = document.querySelectorAll('.auth-tab');
+let isLogin = true;
 
-document.addEventListener('DOMContentLoaded', () => {
+const provider = new firebase.auth.GoogleAuthProvider();
+
+// Tombol Google Login
+document.querySelector('.btn-social').addEventListener('click', () => {
+  firebase.auth().signInWithPopup(provider)
+    .then((result) => {
+      const user = result.user;
+      console.log('Login berhasil:', user.displayName);
+      closeAuthScreen();
+    })
+    .catch((error) => {
+      alert('Login Google gagal: ' + error.message);
+    });
+});
+
+authTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    isLogin = tab.dataset.tab === 'login';
+    authTabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    loginForm.classList.toggle('hidden', !isLogin);
+    registerForm.classList.toggle('hidden', isLogin);
+    authFooter.innerHTML = isLogin
+      ? 'Belum punya akun? <a href="#" id="authSwitch">Daftar sekarang</a>'
+      : 'Sudah punya akun? <a href="#" id="authSwitch">Masuk di sini</a>';
+    document.getElementById('authSwitch').addEventListener('click', e => {
+      e.preventDefault();
+      authTabs[isLogin ? 1 : 0].click();
+    });
+  });
+});
+
+function closeAuthScreen() {
+  authScreen.style.opacity = '0';
+  setTimeout(() => {
+    authScreen.classList.add('hidden');
+    document.body.style.overflow = '';
+    initReveal();
+    initCounters();
+    initTypewriter();
+
+    // ✅ Tampilkan welcome toast
+    showWelcomeToast();
+  }, 500);
+}
+
+function showWelcomeToast() {
+  const toast = document.getElementById('welcomeToast');
+  const msg = document.getElementById('welcomeMsg');
+  const user = firebase.auth().currentUser;
+
+  // Ambil nama dari displayName, atau dari email (sebelum @)
+  let nama = 'Teman';
+  if (user) {
+    if (user.displayName) {
+      // Ambil nama depan saja
+      nama = user.displayName.split(' ')[0];
+    } else if (user.email) {
+      // Ambil bagian sebelum @ dari email
+      nama = user.email.split('@')[0];
+    }
+  }
+
+  // Kapitalisasi huruf pertama
+  nama = nama.charAt(0).toUpperCase() + nama.slice(1);
+
+  msg.innerHTML = `Selamat datang <span>${nama}</span>! 🎉<br>
+    <span style="font-size:11px; color:rgba(255,255,255,0.5)">
+      Terimakasih sudah mau melihat portofolioku
+    </span>`;
+
+  // Tampilkan toast
+  setTimeout(() => toast.classList.add('show'), 300);
+
+  // Sembunyikan otomatis setelah 5 detik
+  setTimeout(() => toast.classList.remove('show'), 5500);
+}
+
+loginForm.addEventListener('submit', e => {
+  e.preventDefault();
+  closeAuthScreen();
+});
+registerForm.addEventListener('submit', e => {
+  e.preventDefault();
+  closeAuthScreen();
+});
+ document.body.style.overflow = 'hidden';
 
   // ---- LOADER ----
   const loader = document.getElementById('loader');
   window.addEventListener('load', () => {
     setTimeout(() => {
       loader.classList.add('hidden');
+      authScreen.classList.add('visible');
       document.body.style.overflow = '';
       initReveal();
       initCounters();
@@ -454,4 +548,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.2 });
   if (skillsSection) skillsObserver.observe(skillsSection);
 
-});
+

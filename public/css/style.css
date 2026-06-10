@@ -849,3 +849,194 @@ input, textarea { font-family: inherit; }
   .floating-badge { display: none; }
   .image-frame { width: 200px; height: 240px; }
 }
+/* ===== AUTH SCREEN ===== */
+.auth-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #0a0a0f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.auth-screen.visible { opacity: 1; }
+.auth-screen.hidden { display: none; }
+
+.auth-box {
+  background: #111118;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  padding: 2.5rem 2rem;
+}
+.auth-logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 4px;
+}
+.auth-logo span { color: #a78bfa; }
+.auth-sub {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+.auth-tabs {
+  display: flex;
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+  padding: 4px;
+  margin-bottom: 1.75rem;
+  gap: 4px;
+}
+.auth-tab {
+  flex: 1;
+  padding: 8px;
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  color: rgba(255,255,255,0.4);
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.auth-tab.active { background: #7c3aed; color: #fff; }
+
+.auth-form .form-group { margin-bottom: 1rem; }
+.auth-form label {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 6px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.auth-form input {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 0.5px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.auth-form input::placeholder { color: rgba(255,255,255,0.2); }
+.auth-form input:focus { border-color: rgba(124,58,237,0.6); }
+
+.btn-auth {
+  width: 100%;
+  padding: 11px;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: opacity 0.2s;
+  letter-spacing: 0.02em;
+}
+.btn-auth:hover { opacity: 0.85; }
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 1.25rem 0;
+  color: rgba(255,255,255,0.2);
+  font-size: 12px;
+}
+.auth-divider::before, .auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 0.5px;
+  background: rgba(255,255,255,0.08);
+}
+
+.auth-social { display: flex; gap: 10px; }
+.btn-social {
+  flex: 1;
+  padding: 9px;
+  background: rgba(255,255,255,0.05);
+  border: 0.5px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  color: rgba(255,255,255,0.7);
+  font-size: 13px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.btn-social:hover { background: rgba(255,255,255,0.1); }
+
+.auth-footer {
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+  margin-top: 1.25rem;
+}
+.auth-footer a { color: #a78bfa; text-decoration: none; }
+
+.auth-form.hidden { display: none; }
+/* ===== WELCOME TOAST ===== */
+.welcome-toast {
+  position: fixed;
+  top: 80px;
+  left: 20px;
+  z-index: 9998;
+  transform: translateX(-120%);
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.welcome-toast.show {
+  transform: translateX(0);
+}
+.welcome-inner {
+  background: rgba(17, 17, 24, 0.95);
+  border: 0.5px solid rgba(167, 139, 250, 0.3);
+  border-radius: 14px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  backdrop-filter: blur(10px);
+  max-width: 320px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+.welcome-wave {
+  font-size: 22px;
+  animation: wave 1s ease-in-out 3;
+}
+@keyframes wave {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(20deg); }
+  75% { transform: rotate(-10deg); }
+}
+#welcomeMsg {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.5;
+  margin: 0;
+}
+#welcomeMsg span {
+  color: #a78bfa;
+  font-weight: 600;
+}

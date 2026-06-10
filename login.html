@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Halaman Login Akmal Jadid Hibrizi" />
+  <title>Login | Portfolio Akmal Jadid</title>
+  <link rel="stylesheet" href="public/css/style.css?v=1.0.3" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">AJH<span>.</span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="register.html" class="nav-link">Register</a></li>
+    </ul>
+  </nav>
+  <main class="auth-page">
+    <div class="auth-card">
+      <div class="auth-header">
+        <span class="section-label">Masuk</span>
+        <h1 class="auth-title">Login ke Akun Anda</h1>
+        <p class="auth-text">Masuk menggunakan email dan password yang telah didaftarkan. Data tersimpan di database backend.</p>
+      </div>
+      <form id="loginForm" class="auth-form">
+        <div class="form-group">
+          <label for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" name="email" placeholder="name@example.com" required />
+          <span class="field-error" id="loginEmailError"></span>
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" name="password" placeholder="Password Anda" required />
+          <span class="field-error" id="loginPasswordError"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+        <div class="form-status" id="loginStatus"></div>
+        <p class="auth-footer">Belum punya akun? <a href="register.html">Daftar sekarang</a></p>
+      </form>
+    </div>
+  </main>
+  <script src="public/js/main.js?v=1.0.0"></script>
+</body>
+</html>
