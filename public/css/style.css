@@ -867,7 +867,7 @@ input, textarea { font-family: inherit; }
   .btn { width: 100%; justify-content: center; }
   .btn-ghost { width: auto; }
   .about-actions { flex-direction: column; align-items: flex-start; }
-  .floating-badge { display: none; }
+  .floating-badge { display: none !important; }
   .image-frame { width: 200px; height: 240px; }
 }
 /* ===== AUTH SCREEN ===== */
