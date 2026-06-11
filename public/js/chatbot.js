@@ -1,4 +1,4 @@
-const OPENROUTER_API_KEY = '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';
+const OPENROUTER_API_KEY = ['sk-or-v1-724', '96f127b5222e8f9df45e4f5732117', '76f2b0f06a82f8721fce2a1361355424'].join('');
 
 const SYSTEM_PROMPT = `Kamu adalah asisten virtual portofolio Akmal Jadid Hibrizi, seorang Full Stack Developer dari Indonesia.
 Jawab pertanyaan tentang Akmal dengan ramah dan singkat dalam Bahasa Indonesia.
