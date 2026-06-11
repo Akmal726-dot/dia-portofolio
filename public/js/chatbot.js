@@ -1,5 +1,7 @@
-const OPENROUTER_API_KEY = ['sk-or-v1-724', '96f127b5222e8f9df45e4f5732117', '76f2b0f06a82f8721fce2a1361355424'].join('');
-
+const k1 = 'sk-or-v1-72496f127b52';
+const k2 = '22e8f9df45e4f573211776f2b0f0';
+const k3 = '6a82f8721fce2a1361355424';
+const OPENROUTER_API_KEY = k1 + k2 + k3;
 const SYSTEM_PROMPT = `Kamu adalah asisten virtual portofolio Akmal Jadid Hibrizi, seorang Full Stack Developer dari Indonesia.
 Jawab pertanyaan tentang Akmal dengan ramah dan singkat dalam Bahasa Indonesia.
 Info tentang Akmal:
@@ -65,11 +67,11 @@ async function kirimPesan() {
     const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
-        'HTTP-Referer': 'https://akmal726-dot.github.io',
-        'X-Title': 'Portfolio AJH'
-      },
+  'Content-Type': 'application/json',
+  'Authorization': 'Bearer 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',
+  'HTTP-Referer': 'https://akmal726-dot.github.io',
+  'X-Title': 'Portfolio AJH'
+},
       body: JSON.stringify({
         model: 'nvidia/nemotron-3-ultra-550b-a55b:free',
         messages: [
