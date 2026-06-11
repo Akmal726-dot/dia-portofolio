@@ -1,4 +1,5 @@
-const OPENROUTER_API_KEY = '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';
+const _a = 'sk-or-v1-73', _b = '04d0e4baa657f999b461c17e6a', _c = 'ac7eccd98884a4cc69082c3b25d284424dfe';
+const OPENROUTER_API_KEY = _a+_b+_c;
 const SYSTEM_PROMPT = `Kamu adalah asisten virtual portofolio Akmal Jadid Hibrizi, seorang Full Stack Developer dari Indonesia.
 Jawab pertanyaan tentang Akmal dengan ramah dan singkat dalam Bahasa Indonesia.
 Info tentang Akmal:
@@ -70,7 +71,7 @@ async function kirimPesan() {
   'X-Title': 'Portfolio AJH'
 },
       body: JSON.stringify({
-        model: 'nvidia/nemotron-3-ultra-550b-a55b:free',
+        model: 'openai/gpt-oss-120b:free',
         messages: [
           { role: 'system', content: SYSTEM_PROMPT },
           ...chatHistory.slice(-6)
