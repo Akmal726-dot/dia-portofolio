@@ -471,7 +471,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ${p.features.map(f => `<li>${f}</li>`).join('')}
       </ul>
       <div class="modal-links">
-        <a href="videos/DJ.mp4" target="_blank" class="btn btn-primary" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+        <a href="videos/DJ.mp4" target="_blank" class="btn btn-primary" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i> Putar Vidio</a>
       </div>
     `;
     modal.classList.add('open');

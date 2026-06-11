@@ -16,6 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
+
 <body>
   <!-- NOTIFICATION TOAST -->
 <div id="notifToast" style="
@@ -409,8 +410,39 @@
 
 <script src="public/js/data.js?v=1.0.0"></script>
 <script src="public/js/main.js?v=1.0.0"></script>
+  <!-- CHATBOT -->
+<div id="chatbotBtn" style="
+  position:fixed;bottom:28px;right:28px;
+  width:56px;height:56px;border-radius:50%;
+  background:linear-gradient(135deg,#7c3aed,#a855f7);
+  border:none;cursor:pointer;z-index:5000;
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;box-shadow:0 4px 20px rgba(124,58,237,0.4);
+">💬</div>
 
-  <script src="public/js/data.js?v=1.0.0"></script>
-  <script src="public/js/main.js?v=1.0.0"></script>
+<div id="chatbotWindow" style="
+  position:fixed;bottom:96px;right:28px;
+  width:320px;background:#111118;
+  border:0.5px solid rgba(255,255,255,0.08);
+  border-radius:16px;overflow:hidden;
+  display:none;flex-direction:column;
+  z-index:5000;box-shadow:0 8px 32px rgba(0,0,0,0.4);
+">
+  <div style="background:linear-gradient(135deg,#7c3aed,#a855f7);padding:14px 16px;display:flex;align-items:center;gap:10px;">
+    <div style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:16px;">🤖</div>
+    <div>
+      <p style="margin:0;font-size:13px;font-weight:600;color:#fff;">AJH Assistant</p>
+      <span style="font-size:11px;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:4px;"><span style="width:6px;height:6px;background:#00d4aa;border-radius:50%;display:inline-block;"></span> Online</span>
+    </div>
+    <button onclick="toggleChat()" style="margin-left:auto;background:none;border:none;color:#fff;font-size:18px;cursor:pointer;opacity:0.7;">✕</button>
+  </div>
+  <div id="chatMsgs" style="padding:16px;display:flex;flex-direction:column;gap:10px;height:260px;overflow-y:auto;"></div>
+  <div style="padding:12px;border-top:0.5px solid rgba(255,255,255,0.06);display:flex;gap:8px;">
+    <input id="chatInput" placeholder="Ketik pesan..." onkeydown="if(event.key==='Enter')kirimPesan()" style="flex:1;background:rgba(255,255,255,0.05);border:0.5px solid rgba(255,255,255,0.1);border-radius:8px;padding:9px 12px;color:#fff;font-size:13px;outline:none;font-family:'DM Sans',sans-serif;"/>
+    <button onclick="kirimPesan()" style="width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,#7c3aed,#a855f7);border:none;cursor:pointer;color:#fff;font-size:16px;">➤</button>
+  </div>
+</div>
+
+<script src="public/js/chatbot.js?v=2.0.0"></script>
 </body>
 </html>
