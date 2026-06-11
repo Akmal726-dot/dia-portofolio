@@ -1108,3 +1108,21 @@ input, textarea { font-family: inherit; }
 .btn-logout i {
   font-size: 14px;
 }
+@media (max-width: 768px) {
+  .floating-badge { display: none !important; }
+  .frame-decoration { display: none !important; }
+  .hero-bg { overflow: hidden; }
+  .orb-1, .orb-2, .orb-3 { 
+    width: 200px !important; 
+    height: 200px !important; 
+  }
+  .image-frame {
+    overflow: hidden;
+  }
+  section {
+    overflow-x: hidden;
+  }
+  body {
+    overflow-x: hidden;
+  }
+}
